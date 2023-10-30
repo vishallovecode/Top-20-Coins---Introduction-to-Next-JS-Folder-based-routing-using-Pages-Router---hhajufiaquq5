@@ -6,7 +6,7 @@ function CoinDetail({ params }) {
 
   const fetchCoin = async () => {
     const response = await fetch(
-      `https://api.coinlore.net/api/ticker/?id=${params.coin_id}`
+      `https://api.coinlore.net/api/ticker/?id=${params.coinId}`
     );
     const result = await response.json();
     const coinDetail = result[0];
@@ -14,8 +14,10 @@ function CoinDetail({ params }) {
   };
 
   useEffect(() => {
-    fetchCoin();
-  }, [params.coin_id]);
+    if (params.coinId) {
+      fetchCoin();
+    }
+  }, [params.coinId]);
 
   if (!coin) {
     return <p className="loading-para">Loading...</p>;
