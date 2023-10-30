@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import CoinCard from "./CoinCard";
+import CoinCard from "./components/CoinCard";
 
 function Home() {
   const [coins, setCoins] = useState([]);
